@@ -51,6 +51,8 @@ function bullet_collision()
             player1.bullets.splice(i, 1);
             i--;
         }
+        if (Math.abs(enemy1.position.x) == Math.abs(player1.bullets[i].position.x) && Math.abs(enemy1.position.y) == Math.abs(player1.bullets[i].position.y))
+            console.log("touched")
     }
 
 }
@@ -63,6 +65,8 @@ function player_collision()
 
     if ( x > WIDTH )
         player1.graphic.position.x -= x - WIDTH;
+    if (x < 0)
+        player1.graphic.position.x -= x;
     if ( y < 0 )
         player1.graphic.position.y -= y;
     if ( y > HEIGHT )
